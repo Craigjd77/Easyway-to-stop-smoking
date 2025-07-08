@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Allen Carr's Educational Series: Easy Way to Stop Smoking</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Work+Sans:wght@400;600;700&family=Spectral:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Film Grain Overlay -->
+    <div class="film-grain"></div>
+    
+    <!-- Projector Light Effect -->
+    <div class="projector-light"></div>
+    
+    <!-- Main Filmstrip Container -->
+    <div class="filmstrip-container">
+        <!-- Vintage Classroom Header -->
+        <header class="classroom-header">
+            <div class="header-content">
+                <h1 class="series-title">Allen Carr's Educational Series</h1>
+                <div class="subtitle">Easy Way to Stop Smoking</div>
+                <div class="educational-label">A Comprehensive Health Education Program</div>
+            </div>
+            <div class="allen-portraits">
+                <div class="portrait-frame">
+                    <img src="images/allen1.png" alt="Allen Carr" class="allen-portrait">
+                    <div class="portrait-caption">Allen Carr, M.A.</div>
+                </div>
+                <div class="portrait-frame">
+                    <img src="images/allen3.png" alt="Allen Carr's Wife" class="allen-portrait">
+                    <div class="portrait-caption">Mrs. Carr</div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Film Counter Progress -->
+        <section class="film-counter">
+            <div class="counter-display">
+                <span class="current-slide">Slide 1</span>
+                <span class="slide-separator">of</span>
+                <span class="total-slides">39</span>
+            </div>
+            <div class="progress-reel">
+                <div class="reel-track">
+                    <div class="reel-fill" id="reelProgress"></div>
+                </div>
+                <div class="reel-label">Educational Progress</div>
+            </div>
+        </section>
+
+        <!-- Projector Controls -->
+        <nav class="projector-controls">
+            <div class="control-panel">
+                <button class="control-btn prev-btn" id="prevSlide">
+                    <span class="btn-icon">◀</span>
+                    <span class="btn-label">Previous</span>
+                </button>
+                <div class="slide-selector">
+                    <label for="slideSelect">Select Slide:</label>
+                    <select id="slideSelect">
+                        <!-- Will be populated by JavaScript -->
+                    </select>
+                </div>
+                <button class="control-btn next-btn" id="nextSlide">
+                    <span class="btn-label">Next</span>
+                    <span class="btn-icon">▶</span>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Filmstrip Content -->
+        <main class="filmstrip-content">
+            <!-- Slide 1: Introduction -->
+            <article class="film-slide active" id="slide1">
+                <div class="slide-header">
+                    <div class="slide-number">Slide 1</div>
+                    <h2 class="slide-title">Introduction to the Smoking Trap</h2>
+                    <div class="slide-subtitle">Understanding the Nature of Addiction</div>
+                </div>
+                
+                <div class="slide-content">
+                    <div class="slide-image-frame">
+                        <img src="images/1.png" alt="Slide 1: Introduction to Smoking Trap" class="slide-image">
+                        <div class="image-label">Slide 1: The Smoking Trap</div>
+                    </div>
+                    
+                    <div class="narrator-text">
+                        <div class="narrator-label">Narrator</div>
+                        <div class="quote">"The truth is that smoking does absolutely nothing for you at all. It doesn't relieve stress, it doesn't help you concentrate, it doesn't give you courage, and it doesn't make you look cool. It does the exact opposite of all these things."</div>
+                    </div>
+                    
+                    <div class="slide-text">
+                        <p>Welcome to this comprehensive educational series on smoking cessation. In this program, we will systematically examine the nature of the smoking trap and provide you with the knowledge necessary to achieve permanent freedom.</p>
+                        
+                        <h3 class="section-title">Educational Objectives</h3>
+                        <p>By the conclusion of this series, you will understand:</p>
+                        <ul class="educational-list">
+                            <li>The fundamental nature of nicotine addiction</li>
+                            <li>The psychological mechanisms that maintain the smoking habit</li>
+                            <li>The Easy Way method for permanent cessation</li>
+                            <li>Practical strategies for maintaining freedom</li>
+                        </ul>
+                        
+                        <div class="educational-note">
+                            <h4>Important Note</h4>
+                            <p>This educational program is designed to be viewed sequentially. Each slide builds upon previous information to create a complete understanding of the smoking cessation process.</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Slide 2: The Illusion of Pleasure -->
+            <article class="film-slide" id="slide2">
+                <div class="slide-header">
+                    <div class="slide-number">Slide 2</div>
+                    <h2 class="slide-title">The Illusion of Pleasure</h2>
+                    <div class="slide-subtitle">Deconstructing the Smoking Experience</div>
+                </div>
+                
+                <div class="slide-content">
+                    <div class="slide-image-frame">
+                        <img src="images/2.png" alt="Slide 2: The Illusion of Pleasure" class="slide-image">
+                        <div class="image-label">Slide 2: The Illusion of Pleasure</div>
+                    </div>
+                    
+                    <div class="narrator-text">
+                        <div class="narrator-label">Narrator</div>
+                        <div class="quote">"The only pleasure you get from smoking is the relief from the withdrawal symptoms from the previous cigarette. That's not pleasure, that's just relief from a self-imposed discomfort."</div>
+                    </div>
+                    
+                    <div class="slide-text">
+                        <p>One of the most powerful illusions that maintains the smoking habit is the belief that smoking provides genuine pleasure or relief. This slide examines this misconception systematically.</p>
+                        
+                        <h3 class="section-title">The Withdrawal-Relief Cycle</h3>
+                        <p>Smokers experience a continuous cycle of withdrawal and relief that creates the illusion of pleasure. When nicotine levels drop in the bloodstream, withdrawal symptoms begin to appear.</p>
+                        
+                        <div class="educational-diagram">
+                            <h4>Cycle Analysis</h4>
+                            <div class="cycle-steps">
+                                <div class="step">1. Nicotine levels drop</div>
+                                <div class="step">2. Withdrawal symptoms appear</div>
+                                <div class="step">3. Cigarette is smoked</div>
+                                <div class="step">4. Relief is experienced</div>
+                                <div class="step">5. Cycle repeats</div>
+                            </div>
+                        </div>
+                        
+                        <div class="educational-note">
+                            <h4>Key Insight</h4>
+                            <p>The relief experienced after smoking is not pleasure - it is merely the cessation of withdrawal symptoms. This creates a false association between smoking and satisfaction.</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Additional Slides Container -->
+            <div id="additionalSlides"></div>
+        </main>
+
+        <!-- Filmstrip Footer -->
+        <footer class="filmstrip-footer">
+            <div class="production-credits">
+                <div class="credit-line">Produced by Your Brain</div>
+                <div class="credit-line">Directed by Allen Carr</div>
+                <div class="credit-line">A Freedom Production</div>
+            </div>
+            <div class="educational-disclaimer">
+                <p>This educational program is designed to provide information and support for smoking cessation. Results may vary. Consult with healthcare professionals for personalized medical advice.</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Vintage Effects Toggle -->
+    <div class="effects-toggle">
+        <button class="toggle-btn" id="vintageToggle">
+            <span class="toggle-icon">🎞️</span>
+            <span class="toggle-label">Vintage Effects</span>
+        </button>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
