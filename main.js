@@ -1,213 +1,170 @@
-/* Allen Carr Easy Way — interactive escape path
-   Content is original educational paraphrase of well-known Easyway ideas.
-   NOT verbatim text from Allen Carr’s copyrighted book. */
+/* Allen Carr Easy Way — freedom arcade
+   Original educational paraphrase of Easyway ideas — not book verbatim. */
 
-const myths = [
+const illusions = [
+  { lie: "It helps me relax", truth: "It only ends the fidget nicotine created. Non-smokers already have that calm." },
+  { lie: "I need it for stress", truth: "Smoking schedules stress between cigarettes, then sells you the refund." },
+  { lie: "It helps me concentrate", truth: "Half your mind is hunting the next dose. Silence that itch and focus returns." },
+  { lie: "I’ll always miss it", truth: "You’ll notice a missing ritual briefly — not a lost joy. Longing dies with the illusion." },
+  { lie: "Quitting takes iron willpower", truth: "Willpower means wanting it and forbidding it. Easy Way removes the want." },
+  { lie: "Just one won’t hurt", truth: "One cigarette restarts nicotine and the mental argument. No souvenir drags." },
+  { lie: "Cutting down is smarter", truth: "Fewer cigarettes make each one feel precious. You stay hooked and more obsessed." },
+  { lie: "I’m waiting for the right time", truth: "There’s no calm month the addiction will approve. Understanding is the green light." }
+];
+
+const dayBeats = [
   {
-    lie: "It helps me relax",
-    truth: "It only ends the fidget nicotine created. Non-smokers already have the calm you’re borrowing."
+    time: "7:10 AM",
+    title: "First of the day",
+    body: "Eyes open, and the hunger is already loud. This one feels like oxygen.",
+    reframe: "It’s loud because you went hours without nicotine — not because mornings require smoke.",
+    sky: "linear-gradient(180deg, #f7d9a8 0%, #9ec9e6 55%, #e8f4fa 100%)"
   },
   {
-    lie: "I need it for stress",
-    truth: "Smoking schedules stress between cigarettes, then sells you the refund."
+    time: "10:40 AM",
+    title: "Desk fidget",
+    body: "Work gets sticky. You tell yourself a cigarette will sharpen you.",
+    reframe: "The sticky feeling is partly the itch interrupting you. Feed it and it takes credit for ‘focus.’",
+    sky: "linear-gradient(180deg, #b9d8ef 0%, #dfeff8 50%, #eef6f2 100%)"
   },
   {
-    lie: "It helps me concentrate",
-    truth: "Half your brain is hunting the next dose. The “focus” after a smoke is the itch shutting up."
+    time: "1:05 PM",
+    title: "After lunch",
+    body: "Meal ends. Hands look for the familiar punctuation mark.",
+    reframe: "The meal was the pleasure. The cigarette trained itself onto the period at the end of the sentence.",
+    sky: "linear-gradient(180deg, #87b7d8 0%, #cfe6f4 45%, #e7f3ee 100%)"
   },
   {
-    lie: "I’ll always miss it",
-    truth: "You’ll briefly notice a missing ritual — not a lost joy. The longing dies with the illusion."
+    time: "3:30 PM",
+    title: "Stress spike",
+    body: "Email lands like a brick. You want the ‘calm down’ stick.",
+    reframe: "Handle the email. Don’t tip a drug that made you edgy between doses all day.",
+    sky: "linear-gradient(180deg, #6f9fbd 0%, #c5dcea 50%, #e8eef2 100%)"
   },
   {
-    lie: "Quitting takes iron willpower",
-    truth: "Willpower means wanting it and forbidding it. Easy Way removes the want."
+    time: "8:15 PM",
+    title: "Pub / friends",
+    body: "Laughter, drinks, the doorway summons. ‘Just social.’",
+    reframe: "The fun is the people. Stepping out mid-story is answering a bell, not belonging.",
+    sky: "linear-gradient(180deg, #3d5f7a 0%, #7f9eb5 40%, #d9e3ea 100%)"
   },
   {
-    lie: "Just one won’t hurt",
-    truth: "One cigarette restarts nicotine and the mental argument. There’s no souvenir drag."
-  },
-  {
-    lie: "Cutting down is smarter",
-    truth: "Fewer cigarettes make each one feel more precious. You stay hooked and more obsessed."
-  },
-  {
-    lie: "I’m waiting for the right time",
-    truth: "There’s no calm month the addiction will approve. Understanding is the green light."
+    time: "11:40 PM",
+    title: "Last one",
+    body: "You bargain: final cigarette, then sleep. Tomorrow’s first one is already booked.",
+    reframe: "The ‘last one’ is a subscription renewal. Freedom is cancelling the plan — cheerfully.",
+    sky: "linear-gradient(180deg, #1b2a38 0%, #3e566b 45%, #9aaebc 100%)"
   }
 ];
 
-const moments = [
+const brainScenes = [
   {
-    id: "coffee",
+    label: "Tough meeting",
+    smoker: "If I don’t smoke after this I’ll snap. I need something. Everyone gets a crutch.",
+    free: "The meeting was hard. A cigarette won’t rewrite it — it’ll just restart a private itch so I can ‘solve’ it."
+  },
+  {
     label: "Morning coffee",
-    title: "Coffee doesn’t need a chimney",
-    body: "The first cigarette feels huge because overnight withdrawal peaked. The coffee is the pleasure; nicotine is the pickpocket hitching a ride.",
-    line: "Keep the mug. Fire the parasite."
+    smoker: "Coffee without a cigarette is pointless. That’s my sacred combo.",
+    free: "Coffee is the ritual I like. Nicotine gatecrashed it and charged rent. Keep the mug, fire the gatecrasher."
   },
   {
-    id: "stress",
-    label: "After stress",
-    title: "Stress already happened — smoking added a second job",
-    body: "The argument, deadline, or traffic is real. The cigarette didn’t solve it; it briefly ended a nicotine itch layered on top.",
-    line: "Handle the problem. Don’t tip the drug."
+    label: "Friends lighting up",
+    smoker: "They’re enjoying themselves. I’m the boring one if I don’t join.",
+    free: "They’re feeding a trap on a timer. I can stay in the joke without punching out for a dose."
   },
   {
-    id: "meal",
-    label: "After a meal",
-    title: "Dessert isn’t poison smoke",
-    body: "A full stomach and a pause feel good. Pairing a cigarette trained your brain to credit the wrong thing.",
-    line: "Finish the meal. Skip the refund ritual."
-  },
-  {
-    id: "social",
-    label: "With friends / pub",
-    title: "Company isn’t a nicotine appointment",
-    body: "Laughter and chat work without synchronized tops-ups. Stepping outside mid-story is slavery dressed as socializing.",
-    line: "Stay in the conversation. Pity the ones still popping out."
-  },
-  {
-    id: "drive",
-    label: "In the car",
-    title: "The road doesn’t require a filter tip",
-    body: "Boredom + habit loop. The car smell, the ash, the window crack — none of that is freedom.",
-    line: "Drive as a non-smoker. Hands on the wheel, not the itch."
-  },
-  {
-    id: "boredom",
-    label: "When bored",
-    title: "Nicotine makes ordinary moments feel incomplete",
-    body: "Lighting up interrupts emptiness with ritual. Remove the addiction and life doesn’t get flatter — the fake “something’s missing” signal stops.",
-    line: "Boredom is allowed. Poison isn’t required."
+    label: "Bored evening",
+    smoker: "There’s nothing to do. A cigarette makes a moment happen.",
+    free: "Boredom is allowed. Manufacturing a tiny withdrawal so I can relieve it is a sad hobby."
   }
 ];
 
-const auditItems = [
+const trialCharges = [
   {
-    claim: "Pleasure / reward",
-    rebuttal: "That’s relief from withdrawal you wouldn’t have if you didn’t smoke."
+    charge: "False advertising: ‘I am pleasure’",
+    prompt: "Cross-exam: What do you actually deliver in the first second?",
+    verdict: "Only relief from withdrawal you caused. That’s a refund, not a gift. Guilty of impersonating pleasure."
   },
   {
-    claim: "Stress relief",
-    rebuttal: "It manufactures the stress between doses, then poses as medicine."
+    charge: "Fraud: ‘I calm stress’",
+    prompt: "Cross-exam: Who created the edgy feeling between doses?",
+    verdict: "You did. Then you sold the ceasefire. Guilty of running a protection racket."
   },
   {
-    claim: "Helps me think",
-    rebuttal: "It distracts you until you feed it — then takes credit for clear thinking."
+    charge: "Theft: time, money, breath",
+    prompt: "Cross-exam: Name one thing you give that a non-smoker lacks.",
+    verdict: "Silence. You take continuously and call the brief pause ‘benefit.’ Guilty on theft."
   },
   {
-    claim: "Social lubricant",
-    rebuttal: "People connect. Cigarettes just billed you for the interval."
-  },
-  {
-    claim: "Weight control",
-    rebuttal: "A poison appetite suppressant isn’t a lifestyle. Hunger ≠ nicotine emptiness."
-  },
-  {
-    claim: "It’s my identity / me-time",
-    rebuttal: "You deserve breaks that don’t enslave you. Me-time without a leash feels bigger."
+    charge: "Conspiracy with brainwashing",
+    prompt: "Cross-exam: Who told the jury quitting must be miserable?",
+    verdict: "Culture, fear, and failed willpower quits — your sleeping partners. Guilty of conspiracy."
   }
 ];
 
 const ceremonySteps = [
-  {
-    btn: "Begin ritual",
-    text: "When you’re ready, begin. In real life, keep smoking until the illusions are gone — this is rehearsal."
-  },
-  {
-    btn: "Look at it honestly",
-    text: "Pick up the cigarette in your mind. Ask: what is this about to give me that I don’t already have as a free person?"
-  },
-  {
-    btn: "Name the scam",
-    text: "Answer: nothing. Only a brief end to an itch this same product created. No courage. No magic. No treasure."
-  },
-  {
-    btn: "Extinguish with relief",
-    text: "Put it out as a celebration, not a sacrifice. From this second, practice the line: I am a non-smoker. I don’t want to smoke."
-  },
-  {
-    btn: "Done",
-    text: "If a thought of smoking appears later, don’t panic — answer it with truth. Never “just one.” Protect the understanding."
-  }
+  { btn: "Begin ritual", text: "Rehearsal only. In real life, keep smoking until the illusions are gone." },
+  { btn: "Look honestly", text: "Hold it in your mind. Ask: what will this give me that freedom doesn’t?" },
+  { btn: "Name the scam", text: "Answer: nothing. A brief end to an itch this product created." },
+  { btn: "Extinguish with relief", text: "Put it out as celebration, not sacrifice. Line to practice: I am a non-smoker. I don’t want to smoke." },
+  { btn: "Done", text: "If the thought returns, answer with truth — never ‘just one.’ Protect the understanding." }
 ];
 
 const topics = [
-  {
-    title: "The sinister trap",
-    body: "Nicotine fades → empty restlessness → you smoke → relief → brain files “cigarettes help.” Repeat until it feels like personality. Escape starts when you stop believing the report."
-  },
-  {
-    title: "Brainwashing’s sleeping partner",
-    body: "Ads, films, friends, and “everyone knows quitting is hard” keep the myth warm beside the drug. Question every benefit story you’ve inherited."
-  },
-  {
-    title: "Why willpower feels like prison",
-    body: "Wanting it and forbidding it is permanent denial. Easy Way flips desire itself so you’re declining a mugging, not resisting a treat."
-  },
-  {
-    title: "Substitutes & the long leash",
-    body: "Anything that keeps nicotine (or the “I need a hit” story) can prolong both the physical itch and the mental chains. Aim to get it out of your head."
-  },
-  {
-    title: "Withdrawal without the horror story",
-    body: "Physical pangs are usually a mild empty cue. Fear and self-pity inflate them. Each pang can mean the addiction is dying — smile at it."
-  },
-  {
-    title: "Allen’s own escape",
-    body: "Hundred-a-day smoker, failed willpower quits, then one insight: he wasn’t losing a pleasure — he was escaping a parasite. Heavy history can make the trap clearer, not hopeless."
-  }
+  { title: "The trap in one breath", body: "Nicotine fades → empty restlessness → smoke → relief → brain files ‘cigarettes help.’ Escape = stop believing the filing system." },
+  { title: "Why willpower feels like prison", body: "Wanting it and forbidding it is permanent denial. Easy Way flips the desire so you’re declining a mugging." },
+  { title: "Substitutes keep the story alive", body: "Anything that continues nicotine — or the ‘I need a hit’ identity — can prolong both itch and myth." },
+  { title: "Withdrawal without horror", body: "Usually a mild empty cue. Fear inflates it. Each pang can mean the addiction is dying." },
+  { title: "Allen’s proof point", body: "Hundred-a-day smoker who escaped without mourning. Heavy history can make the trap clearer, not hopeless." }
 ];
 
 const snapLines = [
-  { title: "Crack!", line: "Paper, leaf, and a refund of comfort the cigarette stole first." },
-  { title: "Illusion weakening…", line: "That wasn’t pleasure — that was relief from the previous dose." },
-  { title: "Trap exposed!", line: "You’re not denying a treat. You’re declining a mugging." },
-  { title: "Freedom reps!", line: "Each snap is practice for the final cigarette celebration." },
-  { title: "Brainwashing off", line: "Stress helper? Focus tool? Cool prop? Cross them off." }
+  { title: "Crack!", line: "Paper, leaf, and a refund of comfort it stole first." },
+  { title: "Illusion thinning…", line: "Not pleasure — relief from the previous dose." },
+  { title: "Sales pitch denied", line: "You’re declining a mugging, not a treat." },
+  { title: "Freedom rep", line: "Practice for the real finale: put it out smiling." }
 ];
 
 const state = {
-  mythsSmashed: new Set(),
-  momentsSeen: new Set(),
-  auditsDone: new Set(),
+  flipped: new Set(),
+  deckIndex: 0,
+  deckShowingBack: false,
+  dayVisited: new Set([0]),
+  brainHeard: false,
+  meterLogged: false,
+  trialSeen: new Set(),
+  doorChosen: false,
   ceremonyDone: false,
+  ceremonyIndex: 0,
   snapCount: 0,
-  snapBusy: false,
-  ceremonyIndex: 0
+  snapBusy: false
 };
 
 document.addEventListener("DOMContentLoaded", () => {
   setupSmokeField();
   setupSnap();
-  setupMyths();
-  setupMoments();
-  setupAudit();
+  setupDeck();
+  setupDay();
+  setupBrains();
+  setupMeter();
+  setupTrial();
+  setupDoors();
   setupCeremony();
   setupTopics();
   updatePathScore();
 });
 
-function pathPoints() {
-  return (
-    state.mythsSmashed.size +
-    state.momentsSeen.size +
-    state.auditsDone.size +
-    (state.ceremonyDone ? 1 : 0)
-  );
-}
-
-function pathTotal() {
-  return myths.length + 3 + 3 + 1; // smash all myths + sample moments/audits toward score feel
-}
-
 function updatePathScore() {
-  // Score toward a friendly max: all myths + any 3 moments + any 3 audits + ceremony
-  const momentPts = Math.min(3, state.momentsSeen.size);
-  const auditPts = Math.min(3, state.auditsDone.size);
-  const score = state.mythsSmashed.size + momentPts + auditPts + (state.ceremonyDone ? 1 : 0);
-  const total = myths.length + 3 + 3 + 1;
-
+  const score =
+    Math.min(3, state.flipped.size) +
+    Math.min(2, state.dayVisited.size > 1 ? 2 : state.dayVisited.size) +
+    (state.brainHeard ? 1 : 0) +
+    (state.meterLogged ? 1 : 0) +
+    Math.min(2, state.trialSeen.size) +
+    (state.doorChosen ? 1 : 0) +
+    (state.ceremonyDone ? 1 : 0);
+  const total = 11;
   const scoreEl = document.getElementById("pathScore");
   const totalEl = document.getElementById("pathTotal");
   const meter = document.getElementById("pathMeter");
@@ -247,17 +204,14 @@ function setupSnap() {
     if (state.snapBusy) return;
     state.snapBusy = true;
     state.snapCount += 1;
-
     btn.classList.add("is-snapped");
     cig.classList.add("snapped");
     playTone(220, 80);
-
     const msg = snapLines[(state.snapCount - 1) % snapLines.length];
     status.innerHTML = `<strong>${msg.title}</strong><span>${msg.line}</span>`;
     document.querySelector(".meter-label").innerHTML =
       `<span id="snapCount">${state.snapCount}</span> ${state.snapCount === 1 ? "snap" : "snaps"} · illusion weakening`;
     meter.style.width = `${Math.min(100, state.snapCount * 12)}%`;
-
     setTimeout(() => {
       cig.classList.remove("snapped");
       btn.classList.remove("is-snapped");
@@ -274,7 +228,7 @@ function playTone(start, end) {
     osc.type = "triangle";
     osc.frequency.setValueAtTime(start, ctx.currentTime);
     osc.frequency.exponentialRampToValueAtTime(end, ctx.currentTime + 0.12);
-    gain.gain.setValueAtTime(0.08, ctx.currentTime);
+    gain.gain.setValueAtTime(0.07, ctx.currentTime);
     gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.14);
     osc.connect(gain);
     gain.connect(ctx.destination);
@@ -285,97 +239,185 @@ function playTone(start, end) {
   }
 }
 
-function setupMyths() {
-  const grid = document.getElementById("mythGrid");
-  const progress = document.getElementById("mythProgress");
-  if (!grid) return;
+function setupDeck() {
+  const card = document.getElementById("flipCard");
+  const prev = document.getElementById("deckPrev");
+  const next = document.getElementById("deckNext");
+  document.getElementById("deckTotal").textContent = String(illusions.length);
 
-  myths.forEach((myth, index) => {
-    const btn = document.createElement("button");
-    btn.type = "button";
-    btn.className = "myth-card";
-    btn.innerHTML = `
-      <span class="myth-label">Myth</span>
-      <strong class="myth-lie">${myth.lie}</strong>
-      <span class="myth-truth">${myth.truth}</span>
-      <span class="myth-hint">Tap to smash</span>
-    `;
-    btn.addEventListener("click", () => {
-      const opening = !btn.classList.contains("is-smashed");
-      btn.classList.toggle("is-smashed");
-      if (opening) {
-        state.mythsSmashed.add(index);
-        playTone(320, 140);
-      } else {
-        state.mythsSmashed.delete(index);
-      }
-      progress.textContent = `${state.mythsSmashed.size} / ${myths.length} myths smashed`;
+  const render = () => {
+    const item = illusions[state.deckIndex];
+    document.getElementById("deckLie").textContent = item.lie;
+    document.getElementById("deckTruth").textContent = item.truth;
+    document.getElementById("deckIndex").textContent = String(state.deckIndex + 1);
+    card.classList.toggle("is-flipped", state.deckShowingBack);
+    document.getElementById("deckProgress").textContent =
+      `${state.flipped.size} / ${illusions.length} flipped`;
+  };
+
+  card.addEventListener("click", () => {
+    state.deckShowingBack = !state.deckShowingBack;
+    if (state.deckShowingBack) {
+      state.flipped.add(state.deckIndex);
+      playTone(300, 150);
       updatePathScore();
-    });
-    grid.appendChild(btn);
+    }
+    render();
   });
+
+  prev.addEventListener("click", () => {
+    state.deckIndex = (state.deckIndex - 1 + illusions.length) % illusions.length;
+    state.deckShowingBack = false;
+    render();
+  });
+
+  next.addEventListener("click", () => {
+    state.deckIndex = (state.deckIndex + 1) % illusions.length;
+    state.deckShowingBack = false;
+    render();
+  });
+
+  render();
 }
 
-function setupMoments() {
-  const picks = document.getElementById("momentPicks");
-  const coach = document.getElementById("momentCoach");
-  if (!picks) return;
+function setupDay() {
+  const range = document.getElementById("dayRange");
+  if (!range) return;
 
-  moments.forEach((moment) => {
+  const paint = () => {
+    const i = Number(range.value);
+    const beat = dayBeats[i];
+    state.dayVisited.add(i);
+    document.getElementById("dayTime").textContent = beat.time;
+    document.getElementById("dayTitle").textContent = beat.title;
+    document.getElementById("dayBody").textContent = beat.body;
+    document.getElementById("dayReframe").textContent = beat.reframe;
+    document.getElementById("daySky").style.background = beat.sky;
+    const night = i >= 4;
+    document.getElementById("day").classList.toggle("is-night", night);
+    updatePathScore();
+  };
+
+  range.addEventListener("input", paint);
+  paint();
+}
+
+function setupBrains() {
+  const select = document.getElementById("brainSituation");
+  const heard = document.getElementById("brainHeard");
+  if (!select) return;
+
+  brainScenes.forEach((scene, i) => {
+    const opt = document.createElement("option");
+    opt.value = String(i);
+    opt.textContent = scene.label;
+    select.appendChild(opt);
+  });
+
+  const paint = () => {
+    const scene = brainScenes[Number(select.value)];
+    document.getElementById("brainSmoker").textContent = scene.smoker;
+    document.getElementById("brainFree").textContent = scene.free;
+  };
+
+  select.addEventListener("change", paint);
+  heard.addEventListener("click", () => {
+    state.brainHeard = true;
+    heard.textContent = "Difference locked in";
+    heard.disabled = true;
+    playTone(280, 140);
+    updatePathScore();
+  });
+  paint();
+}
+
+function setupMeter() {
+  const cigs = document.getElementById("cigsPerDay");
+  const price = document.getElementById("packPrice");
+  const logBtn = document.getElementById("meterLogged");
+  if (!cigs) return;
+
+  const paint = () => {
+    const perDay = Number(cigs.value);
+    const pack = Number(price.value);
+    document.getElementById("cigsPerDayVal").textContent = String(perDay);
+    document.getElementById("packPriceVal").textContent = pack.toFixed(pack % 1 ? 1 : 0);
+
+    const yearlyMoney = (perDay / 20) * pack * 365;
+    const hours = ((perDay * 5) / 60) * 365;
+    document.getElementById("statMoney").textContent = `$${Math.round(yearlyMoney).toLocaleString()}`;
+    document.getElementById("statDays").textContent = `${perDay}×365 tiny appointments`;
+    document.getElementById("statHours").textContent = `${Math.round(hours)} hrs / year`;
+    document.getElementById("meterNote").textContent =
+      `That’s roughly $${Math.round(yearlyMoney)} a year to rent a feeling non-smokers get free.`;
+  };
+
+  cigs.addEventListener("input", paint);
+  price.addEventListener("input", paint);
+  logBtn.addEventListener("click", () => {
+    state.meterLogged = true;
+    logBtn.textContent = "Toll logged";
+    logBtn.disabled = true;
+    playTone(260, 120);
+    updatePathScore();
+  });
+  paint();
+}
+
+function setupTrial() {
+  const wrap = document.getElementById("trialCharges");
+  const prompt = document.getElementById("trialPrompt");
+  const verdict = document.getElementById("trialVerdict");
+  const verdictText = document.getElementById("trialVerdictText");
+  const chargeLine = document.getElementById("trialCharge");
+  if (!wrap) return;
+
+  trialCharges.forEach((item, index) => {
     const btn = document.createElement("button");
     btn.type = "button";
-    btn.className = "moment-chip";
-    btn.textContent = moment.label;
+    btn.className = "trial-charge";
+    btn.textContent = item.charge;
     btn.addEventListener("click", () => {
-      picks.querySelectorAll(".moment-chip").forEach((el) => el.classList.remove("is-active"));
+      wrap.querySelectorAll(".trial-charge").forEach((el) => el.classList.remove("is-active"));
       btn.classList.add("is-active");
-      coach.hidden = false;
-      document.getElementById("coachTitle").textContent = moment.title;
-      document.getElementById("coachBody").textContent = moment.body;
-      document.getElementById("coachLine").textContent = moment.line;
-      state.momentsSeen.add(moment.id);
+      chargeLine.textContent = item.charge;
+      prompt.textContent = item.prompt;
+      verdict.hidden = false;
+      verdictText.textContent = item.verdict;
+      state.trialSeen.add(index);
+      playTone(310, 130);
       updatePathScore();
-      playTone(280, 160);
     });
-    picks.appendChild(btn);
+    wrap.appendChild(btn);
   });
 }
 
-function setupAudit() {
-  const choices = document.getElementById("auditChoices");
-  const list = document.getElementById("auditList");
-  const empty = document.getElementById("auditEmpty");
-  const verdict = document.getElementById("auditVerdict");
-  if (!choices) return;
+function setupDoors() {
+  const will = document.getElementById("doorWill");
+  const easy = document.getElementById("doorEasy");
+  const result = document.getElementById("doorResult");
+  if (!will) return;
 
-  auditItems.forEach((item, index) => {
-    const btn = document.createElement("button");
-    btn.type = "button";
-    btn.className = "audit-chip";
-    btn.textContent = item.claim;
-    btn.addEventListener("click", () => {
-      if (state.auditsDone.has(index)) return;
-      state.auditsDone.add(index);
-      btn.disabled = true;
-      btn.classList.add("is-used");
-      empty.hidden = true;
+  const choose = (which) => {
+    state.doorChosen = true;
+    will.classList.toggle("is-picked", which === "will");
+    easy.classList.toggle("is-picked", which === "easy");
+    will.classList.toggle("is-dimmed", which !== "will");
+    easy.classList.toggle("is-dimmed", which !== "easy");
+    result.hidden = false;
+    if (which === "will") {
+      result.textContent =
+        "Door A is how most people quit — and why they feel deprived. You can notice it… and still walk to Door B.";
+    } else {
+      result.textContent =
+        "Door B is the Easy Way: destroy the illusions first, then leave cheerful. No lifelong arm-wrestle with a cigarette.";
+      playTone(340, 170);
+    }
+    updatePathScore();
+  };
 
-      const li = document.createElement("li");
-      li.innerHTML = `<s>${item.claim}</s><span>${item.rebuttal}</span>`;
-      list.appendChild(li);
-      playTone(240, 110);
-
-      if (state.auditsDone.size >= 3) {
-        verdict.hidden = false;
-      }
-      if (state.auditsDone.size === auditItems.length) {
-        verdict.textContent =
-          "Every “benefit” crossed out. Smoking offers nothing — quitting isn’t a sacrifice.";
-      }
-      updatePathScore();
-    });
-    choices.appendChild(btn);
-  });
+  will.addEventListener("click", () => choose("will"));
+  easy.addEventListener("click", () => choose("easy"));
 }
 
 function setupCeremony() {
@@ -391,11 +433,9 @@ function setupCeremony() {
     step.textContent = current.text;
     const isLast = state.ceremonyIndex >= ceremonySteps.length - 1;
     next.hidden = isLast;
-    next.textContent = isLast
-      ? "Done"
-      : ceremonySteps[state.ceremonyIndex + 1]?.btn || "Continue";
-    if (state.ceremonyIndex === 0) next.textContent = "Begin ritual";
-
+    next.textContent = state.ceremonyIndex === 0
+      ? "Begin ritual"
+      : ceremonySteps[Math.min(state.ceremonyIndex + 1, ceremonySteps.length - 1)].btn;
     cig.classList.toggle("is-lit", state.ceremonyIndex >= 1 && state.ceremonyIndex < 3);
     cig.classList.toggle("is-out", state.ceremonyIndex >= 3);
     stage.classList.toggle("is-complete", isLast);
@@ -408,9 +448,7 @@ function setupCeremony() {
       if (state.ceremonyIndex >= ceremonySteps.length - 1) {
         state.ceremonyDone = true;
         playTone(360, 180);
-      } else {
-        playTone(300, 150);
-      }
+      } else playTone(300, 150);
       render();
       updatePathScore();
     }
@@ -430,7 +468,6 @@ function setupCeremony() {
 function setupTopics() {
   const list = document.getElementById("topicList");
   if (!list) return;
-
   topics.forEach((topic) => {
     const details = document.createElement("details");
     details.className = "topic";
