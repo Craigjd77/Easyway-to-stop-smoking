@@ -533,8 +533,14 @@ section {
 }
 
 .gallery-feature img {
-  aspect-ratio: 16 / 10;
-  object-position: center;
+  aspect-ratio: 4 / 3;
+  object-fit: contain;
+  object-position: center center;
+  background: #e8eef2;
+}
+
+.gallery-grid figure:not(.gallery-feature) img {
+  object-position: center top;
 }
 
 .gallery-grid figcaption {
