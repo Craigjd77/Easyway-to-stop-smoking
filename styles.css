@@ -127,7 +127,7 @@ select {
   font-weight: 700;
   font-size: 0.9rem;
   padding: 0.55rem 0.95rem;
-  border-radius: 999px;
+  border-radius: 12px;
   background: var(--ink);
   color: #fff;
 }
@@ -145,7 +145,7 @@ select {
   gap: 0.4rem;
   border: 0;
   cursor: pointer;
-  border-radius: 999px;
+  border-radius: 12px;
   padding: 0.85rem 1.35rem;
   font-weight: 700;
   transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
