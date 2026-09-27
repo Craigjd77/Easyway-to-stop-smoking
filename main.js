@@ -175,6 +175,8 @@ function setupSnap() {
     const msg = snapLines[(snapCount - 1) % snapLines.length];
     status.innerHTML = `<strong>${msg.title}</strong><span>${msg.line}</span>`;
     countEl.textContent = String(snapCount);
+    document.querySelector(".meter-label").innerHTML =
+      `<span id="snapCount">${snapCount}</span> ${snapCount === 1 ? "snap" : "snaps"} · illusion weakening`;
     meter.style.width = `${Math.min(100, snapCount * 12)}%`;
 
     setTimeout(() => {
