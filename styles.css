@@ -267,8 +267,7 @@ section {
 .section-intro h2,
 .allen-copy h2,
 .method-copy h2,
-.freedom-copy h2,
-.lesson-panel h3 {
+.freedom-copy h2 {
   font-family: var(--font-display);
   letter-spacing: -0.035em;
   line-height: 1.1;
@@ -455,8 +454,8 @@ section {
 .snap-status span { color: var(--ink-soft); }
 
 .snap-meter,
-.lesson-progress {
-  width: min(100%, 360px);
+.path-score {
+  width: min(100%, 520px);
 }
 
 .meter-track {
@@ -681,181 +680,370 @@ section {
   }
 }
 
-/* Lessons */
-.lessons {
-  padding-bottom: 3rem;
-}
-
-.lesson-controls {
-  display: grid;
-  gap: 1rem;
-  align-items: center;
-  margin-bottom: 1.5rem;
-}
-
-@media (min-width: 720px) {
-  .lesson-controls {
-    grid-template-columns: auto 1fr auto;
-  }
-}
-
-.lesson-progress {
-  width: 100%;
-  text-align: center;
-}
-
-.lesson-progress span {
-  display: block;
-  font-weight: 700;
-  margin-bottom: 0.4rem;
-}
-
-.lesson-panel {
-  padding: 1.75rem 0 0.5rem;
-  border-top: 1px solid var(--line);
-  animation: lessonIn 0.45s ease;
-}
-
-@keyframes lessonIn {
+/* Escape path + interactive tools */
+@keyframes riseIn {
   from { opacity: 0; transform: translateY(12px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-.lesson-kicker {
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  font-size: 0.78rem;
-  color: var(--meadow-deep);
-  margin-bottom: 0.5rem;
+.path-score {
+  margin-bottom: 1.5rem;
 }
 
-.lesson-panel h3 {
-  font-size: clamp(1.5rem, 3vw, 2.1rem);
-}
-
-.lesson-sub {
-  margin: 0 0 1rem;
+.path-score p {
+  margin: 0.55rem 0 0;
   color: var(--ink-soft);
+  font-weight: 600;
 }
 
-.lesson-attribution {
-  margin: -0.5rem 0 1.1rem;
-  font-size: 0.82rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
+.path-steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.65rem;
+}
+
+.path-steps a {
+  display: block;
+  padding: 0.85rem 0;
+  border-bottom: 1px solid var(--line);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.15rem;
+  letter-spacing: -0.02em;
+}
+
+.path-steps a:hover {
+  color: var(--sky-deep);
+}
+
+.myth-grid {
+  display: grid;
+  gap: 0.85rem;
+}
+
+@media (min-width: 720px) {
+  .myth-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.myth-card {
+  text-align: left;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.72);
+  border-radius: var(--radius);
+  padding: 1.1rem 1.15rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+  min-height: 140px;
+  display: grid;
+  align-content: start;
+  gap: 0.35rem;
+}
+
+.myth-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(47, 143, 179, 0.35);
+}
+
+.myth-label,
+.myth-hint {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--ash);
 }
 
-.lesson-panel blockquote {
-  margin: 0 0 1.25rem;
-  padding: 0;
-  border: 0;
+.myth-lie {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  letter-spacing: -0.02em;
+}
+
+.myth-truth {
+  display: none;
+  color: var(--ink-soft);
+  line-height: 1.45;
+}
+
+.myth-card.is-smashed {
+  background: linear-gradient(180deg, rgba(47, 157, 120, 0.12), rgba(255, 255, 255, 0.85));
+  border-color: rgba(47, 157, 120, 0.45);
+  animation: riseIn 0.35s ease;
+}
+
+.myth-card.is-smashed .myth-label {
+  color: var(--meadow-deep);
+}
+
+.myth-card.is-smashed .myth-label::after {
+  content: " smashed";
+}
+
+.myth-card.is-smashed .myth-lie {
+  text-decoration: line-through;
+  color: var(--ash);
+  font-size: 1rem;
+}
+
+.myth-card.is-smashed .myth-truth {
+  display: block;
+}
+
+.myth-card.is-smashed .myth-hint {
+  display: none;
+}
+
+.myth-progress {
+  margin: 1rem 0 0;
+  font-weight: 700;
+  color: var(--meadow-deep);
+}
+
+.moment-picks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-bottom: 1.25rem;
+}
+
+.moment-chip,
+.audit-chip {
+  border: 1px solid var(--line);
+  background: #fff;
+  border-radius: 12px;
+  padding: 0.7rem 0.95rem;
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--ink);
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.moment-chip:hover,
+.audit-chip:hover {
+  border-color: var(--sky-deep);
+}
+
+.moment-chip.is-active {
+  background: var(--ink);
+  color: #fff;
+  border-color: var(--ink);
+}
+
+.moment-coach {
+  padding: 1.25rem 0 0;
+  border-top: 1px solid var(--line);
+  animation: riseIn 0.35s ease;
+}
+
+.coach-kicker {
+  margin: 0 0 0.35rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--meadow-deep);
+}
+
+.moment-coach h3 {
+  margin: 0 0 0.55rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 3vw, 1.9rem);
+  letter-spacing: -0.03em;
+}
+
+.moment-coach p {
+  margin: 0 0 0.75rem;
+  color: var(--ink-soft);
+}
+
+.coach-line {
   font-family: var(--font-quote);
   font-style: italic;
+  font-size: 1.2rem !important;
+  color: var(--sky-deep) !important;
+}
+
+.audit-board {
+  display: grid;
+  gap: 1.5rem;
+}
+
+@media (min-width: 800px) {
+  .audit-board {
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 2rem;
+  }
+}
+
+.audit-choices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  align-content: start;
+}
+
+.audit-chip.is-used {
+  opacity: 0.45;
+  text-decoration: line-through;
+}
+
+.audit-result {
+  min-height: 180px;
+}
+
+.audit-empty {
+  margin: 0;
+  color: var(--ink-soft);
+}
+
+#auditList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.85rem;
+}
+
+#auditList li {
+  display: grid;
+  gap: 0.25rem;
+  padding-bottom: 0.85rem;
+  border-bottom: 1px solid var(--line);
+  animation: riseIn 0.35s ease;
+}
+
+#auditList s {
+  color: var(--ash);
+  font-weight: 700;
+}
+
+#auditList span {
+  color: var(--ink-soft);
+}
+
+.audit-verdict {
+  margin: 1.25rem 0 0;
+  font-family: var(--font-display);
+  font-weight: 700;
   font-size: 1.2rem;
-  color: var(--sky-deep);
+  color: var(--meadow-deep);
+  animation: riseIn 0.4s ease;
 }
 
-.lesson-body p {
+.ceremony-stage {
+  text-align: center;
+  padding: 1rem 0 0.5rem;
+}
+
+.ceremony-cig {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.25rem;
+  transition: transform 0.45s ease, opacity 0.45s ease, filter 0.45s ease;
+}
+
+.ceremony-cig .filter-band {
+  width: 64px;
+  height: 30px;
+  border-radius: 8px 0 0 8px;
+  background: linear-gradient(180deg, #f0b27a, var(--filter));
+}
+
+.ceremony-cig .paper-long {
+  width: 140px;
+  height: 30px;
+  background: linear-gradient(180deg, #fff, #f3f4f6);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-left: 0;
+}
+
+.ceremony-cig .ember {
+  width: 12px;
+  height: 30px;
+  background: linear-gradient(180deg, #f97316, #b91c1c);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.ceremony-cig.is-lit .ember {
+  opacity: 1;
+  animation: emberPulse 1.1s ease-in-out infinite;
+}
+
+.ceremony-cig.is-out {
+  transform: scale(0.92) rotate(-6deg);
+  filter: grayscale(0.7);
+  opacity: 0.75;
+}
+
+.ceremony-cig.is-out .ember {
+  opacity: 0;
+  animation: none;
+}
+
+.ceremony-step {
+  max-width: 36rem;
+  margin: 0 auto 1.25rem;
   color: var(--ink-soft);
-  margin: 0 0 0.9rem;
+  font-size: 1.08rem;
+  min-height: 4.5rem;
 }
 
-.lesson-body ul {
-  margin: 0.5rem 0 1rem;
-  padding-left: 1.2rem;
-  color: var(--ink-soft);
-}
-
-.lesson-jump {
+.ceremony-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
-  align-items: center;
-  margin-top: 1.5rem;
-  color: var(--ink-soft);
-}
-
-.lesson-jump select {
-  min-width: min(100%, 280px);
-  padding: 0.65rem 0.8rem;
-  border-radius: 12px;
-  border: 1px solid var(--line);
-  background: #fff;
-}
-
-/* Quotes */
-.quote-stage {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  gap: 0.75rem;
-  align-items: center;
-}
-
-.quote-card {
-  margin: 0;
-  text-align: center;
-  padding: 1rem 0.5rem 1.5rem;
-  min-height: 180px;
-  display: grid;
-  align-content: center;
-}
-
-.quote-card blockquote {
-  margin: 0;
-  font-family: var(--font-quote);
-  font-size: clamp(1.35rem, 3vw, 2rem);
-  font-style: italic;
-  line-height: 1.35;
-  color: var(--ink);
-}
-
-.quote-card figcaption {
-  margin-top: 1rem;
-  font-weight: 700;
-  color: var(--ink-soft);
-}
-
-.quote-nav {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  border: 1px solid var(--line);
-  background: #fff;
-  cursor: pointer;
-  font-size: 1.4rem;
-  line-height: 1;
-  color: var(--ink);
-}
-
-.quote-nav:hover {
-  background: var(--sky);
-  border-color: transparent;
-  color: #fff;
-}
-
-.quote-dots {
-  display: flex;
   justify-content: center;
-  gap: 0.45rem;
-  margin-top: 0.5rem;
 }
 
-.quote-dots button {
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  border: 0;
-  padding: 0;
-  background: rgba(24, 36, 51, 0.2);
+.ceremony-stage.is-complete .ceremony-step {
+  color: var(--meadow-deep);
+  font-weight: 600;
+}
+
+.topic-list {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.topic {
+  border-bottom: 1px solid var(--line);
+  padding: 0.35rem 0;
+}
+
+.topic summary {
   cursor: pointer;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.15rem;
+  letter-spacing: -0.02em;
+  padding: 0.7rem 0;
+  list-style: none;
 }
 
-.quote-dots button[aria-selected="true"] {
-  background: var(--sky-deep);
-  transform: scale(1.25);
+.topic summary::-webkit-details-marker {
+  display: none;
+}
+
+.topic summary::after {
+  content: "+";
+  float: right;
+  color: var(--sky-deep);
+}
+
+.topic[open] summary::after {
+  content: "–";
+}
+
+.topic p {
+  margin: 0 0 1rem;
+  color: var(--ink-soft);
+  max-width: 42rem;
 }
 
 /* Freedom */

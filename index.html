@@ -17,11 +17,11 @@
     <a class="logo" href="#top">Allen Carr</a>
     <nav class="nav">
       <a href="#snap">Snap It</a>
-      <a href="#allen">Allen</a>
-      <a href="#method">The Method</a>
-      <a href="#lessons">Lessons</a>
+      <a href="#myths">Bust myths</a>
+      <a href="#moments">My moments</a>
+      <a href="#ceremony">Final cig</a>
     </nav>
-    <a class="nav-cta" href="#lessons">Start free</a>
+    <a class="nav-cta" href="#path">Start free</a>
   </header>
 
   <main id="top">
@@ -36,8 +36,8 @@
         <h1>The Easy Way to Stop Smoking</h1>
         <p class="hero-lede">See the nicotine trap clearly — then walk out smiling, without willpower wars.</p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="#snap">Snap a cigarette</a>
-          <a class="btn btn-ghost" href="#allen">Meet Allen</a>
+          <a class="btn btn-primary" href="#path">Start escaping</a>
+          <a class="btn btn-ghost" href="#myths">Bust a myth</a>
         </div>
       </div>
     </section>
@@ -180,55 +180,87 @@
       </div>
     </section>
 
-    <!-- Lessons browser -->
-    <section class="lessons" id="lessons">
+    <!-- Escape path: interactive engagement for smokers -->
+    <section class="path" id="path">
       <div class="section-intro">
-        <h2>Easy Way filmstrip</h2>
-        <p>
-          Thirty-nine lessons mapped to themes from Allen Carr’s <em>The Easy Way to Stop Smoking</em> —
-          original summaries of the trap, the illusions, and the final-cigarette mindset. Not a reprint of the book.
-        </p>
+        <h2>Your escape path</h2>
+        <p>Don’t sit through 39 slides. Smash the illusions that keep you lighting up — then practice freedom.</p>
       </div>
-
-      <div class="lesson-controls">
-        <button type="button" class="btn btn-ghost" id="prevLesson">Previous</button>
-        <div class="lesson-progress">
-          <span id="lessonLabel">Lesson 1 / 39</span>
-          <div class="meter-track"><div class="meter-fill" id="lessonMeter"></div></div>
-        </div>
-        <button type="button" class="btn btn-primary" id="nextLesson">Next lesson</button>
+      <div class="path-score" aria-live="polite">
+        <div class="meter-track"><div class="meter-fill" id="pathMeter"></div></div>
+        <p><span id="pathScore">0</span> / <span id="pathTotal">12</span> illusions cleared · keep going until smoking looks silly</p>
       </div>
-
-      <article class="lesson-panel" id="lessonPanel">
-        <div class="lesson-kicker" id="lessonKicker">Chapter</div>
-        <h3 id="lessonTitle">Introduction to the Smoking Trap</h3>
-        <p class="lesson-sub" id="lessonSub">Understanding the Nature of Addiction</p>
-        <blockquote id="lessonQuote"></blockquote>
-        <p class="lesson-attribution">Easyway insight · educational paraphrase</p>
-        <div class="lesson-body" id="lessonBody"></div>
-      </article>
-
-      <label class="lesson-jump">
-        <span>Jump to lesson</span>
-        <select id="lessonSelect"></select>
-      </label>
+      <ol class="path-steps">
+        <li><a href="#myths">1. Bust the myths</a></li>
+        <li><a href="#moments">2. Reframe your moments</a></li>
+        <li><a href="#audit">3. Empty the “benefits” list</a></li>
+        <li><a href="#ceremony">4. Final cigarette ritual</a></li>
+      </ol>
     </section>
 
-    <!-- Quotes -->
-    <section class="quotes" id="quotes">
+    <section class="myths" id="myths">
       <div class="section-intro">
-        <h2>Easyway insights</h2>
-        <p>Core ideas from the method — retold in our words so you can use them without needing the whole book open.</p>
+        <h2>Myth smash</h2>
+        <p>Tap every line you’ve told yourself. Watch the Easy Way truth flip it.</p>
       </div>
-      <div class="quote-stage">
-        <button type="button" class="quote-nav" id="prevQuote" aria-label="Previous quote">‹</button>
-        <figure class="quote-card" id="quoteCard">
-          <blockquote id="quoteText"></blockquote>
-          <figcaption>— Easyway principle (paraphrase)</figcaption>
-        </figure>
-        <button type="button" class="quote-nav" id="nextQuote" aria-label="Next quote">›</button>
+      <div class="myth-grid" id="mythGrid"></div>
+      <p class="myth-progress" id="mythProgress">0 myths smashed</p>
+    </section>
+
+    <section class="moments" id="moments">
+      <div class="section-intro">
+        <h2>When do you “need” one?</h2>
+        <p>Pick the moments that own you. We’ll reframe them the Easy Way — no scare tactics.</p>
       </div>
-      <div class="quote-dots" id="quoteDots" role="tablist" aria-label="Quote slides"></div>
+      <div class="moment-picks" id="momentPicks" role="group" aria-label="Smoking moments"></div>
+      <div class="moment-coach" id="momentCoach" hidden>
+        <p class="coach-kicker">Coach note</p>
+        <h3 id="coachTitle"></h3>
+        <p id="coachBody"></p>
+        <p class="coach-line" id="coachLine"></p>
+      </div>
+    </section>
+
+    <section class="audit" id="audit">
+      <div class="section-intro">
+        <h2>What are you actually giving up?</h2>
+        <p>Carr’s favorite audit: list the advantages of smoking. Honest ones evaporate fast.</p>
+      </div>
+      <div class="audit-board">
+        <div class="audit-choices" id="auditChoices"></div>
+        <div class="audit-result" id="auditResult">
+          <p class="audit-empty" id="auditEmpty">Tap a “benefit” smokers claim. We’ll cross-examine it.</p>
+          <ul id="auditList"></ul>
+        </div>
+      </div>
+      <p class="audit-verdict" id="auditVerdict" hidden>Empty list. You’re not giving up a treasure — you’re firing a parasite.</p>
+    </section>
+
+    <section class="ceremony" id="ceremony">
+      <div class="section-intro">
+        <h2>Final cigarette ritual</h2>
+        <p>Practice the ending before the real one. Conscious. Cheerful. No funeral vibes.</p>
+      </div>
+      <div class="ceremony-stage" id="ceremonyStage">
+        <div class="ceremony-cig" id="ceremonyCig" aria-hidden="true">
+          <span class="filter-band"></span>
+          <span class="paper-long"></span>
+          <span class="ember"></span>
+        </div>
+        <p class="ceremony-step" id="ceremonyStep">When you’re ready, begin. Keep smoking in real life until your illusions are gone — this is rehearsal.</p>
+        <div class="ceremony-actions">
+          <button type="button" class="btn btn-primary" id="ceremonyNext">Begin ritual</button>
+          <button type="button" class="btn btn-ghost" id="ceremonyReset" hidden>Practice again</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="library" id="library">
+      <div class="section-intro">
+        <h2>Dig deeper (optional)</h2>
+        <p>Short Easy Way topic cards if you want more — open only what you’re curious about.</p>
+      </div>
+      <div class="topic-list" id="topicList"></div>
     </section>
 
     <!-- Freedom closer -->
@@ -239,10 +271,10 @@
       <div class="freedom-copy">
         <h2>Freedom starts when the last cigarette dies — not after a probation month.</h2>
         <p>
-          Carr’s finale energy: you’re already a non-smoker the moment you put it out with relief.
+          You’re already a non-smoker the moment you put it out with relief.
           Protect that understanding. For the complete original method, read the book or visit an Easyway centre.
         </p>
-        <a class="btn btn-primary" href="#lessons">Keep going through the lessons</a>
+        <a class="btn btn-primary" href="#ceremony">Practice the final cigarette</a>
       </div>
     </section>
   </main>
