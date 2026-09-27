@@ -677,6 +677,15 @@ section {
   color: var(--ink-soft);
 }
 
+.lesson-attribution {
+  margin: -0.5rem 0 1.1rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ash);
+}
+
 .lesson-panel blockquote {
   margin: 0 0 1.25rem;
   padding: 0;
