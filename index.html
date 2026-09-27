@@ -1,185 +1,220 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Allen Carr's Educational Series: Easy Way to Stop Smoking</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Work+Sans:wght@400;600;700&family=Spectral:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Allen Carr — Easy Way to Stop Smoking</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;1,9..144,500&family=Syne:wght@600;700;800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Film Grain Overlay -->
-    <div class="film-grain"></div>
-    
-    <!-- Projector Light Effect -->
-    <div class="projector-light"></div>
-    
-    <!-- Main Filmstrip Container -->
-    <div class="filmstrip-container">
-        <!-- Vintage Classroom Header -->
-        <header class="classroom-header">
-            <div class="header-content">
-                <h1 class="series-title">Allen Carr's Educational Series</h1>
-                <div class="subtitle">Easy Way to Stop Smoking</div>
-                <div class="educational-label">A Comprehensive Health Education Program</div>
-            </div>
-            <div class="allen-portraits">
-                <div class="portrait-frame">
-                    <img src="images/allen1.png" alt="Allen Carr" class="allen-portrait">
-                    <div class="portrait-caption">Allen Carr, M.A.</div>
-                </div>
-                <div class="portrait-frame">
-                    <img src="images/allen3.png" alt="Allen Carr's Wife" class="allen-portrait">
-                    <div class="portrait-caption">Mrs. Carr</div>
-                </div>
-            </div>
-        </header>
+  <div class="sky-wash" aria-hidden="true"></div>
+  <div class="smoke-field" id="smokeField" aria-hidden="true"></div>
 
-        <!-- Film Counter Progress -->
-        <section class="film-counter">
-            <div class="counter-display">
-                <span class="current-slide">Slide 1</span>
-                <span class="slide-separator">of</span>
-                <span class="total-slides">39</span>
+  <header class="topbar">
+    <a class="logo" href="#top">Allen Carr</a>
+    <nav class="nav">
+      <a href="#snap">Snap It</a>
+      <a href="#method">The Method</a>
+      <a href="#lessons">Lessons</a>
+      <a href="#quotes">Quotes</a>
+    </nav>
+    <a class="nav-cta" href="#lessons">Start free</a>
+  </header>
+
+  <main id="top">
+    <!-- Hero: brand + one headline + one line + CTA + full-bleed image -->
+    <section class="hero">
+      <div class="hero-media" aria-hidden="true">
+        <img src="images/hero-freedom.png" alt="" class="hero-img">
+        <div class="hero-veil"></div>
+      </div>
+      <div class="hero-copy">
+        <p class="brand-mark">Allen Carr</p>
+        <h1>The Easy Way to Stop Smoking</h1>
+        <p class="hero-lede">See the nicotine trap clearly — then walk out smiling, without willpower wars.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#snap">Snap a cigarette</a>
+          <a class="btn btn-ghost" href="#allen">Meet Allen</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive cigarette playground -->
+    <section class="snap-stage" id="snap">
+      <div class="section-intro">
+        <h2>Little nicotine monsters hate this part</h2>
+        <p>Click the cigarette. Watch the illusion crack. That’s the Easy Way energy.</p>
+      </div>
+
+      <div class="playground">
+        <button type="button" class="cig-button" id="snapCig" aria-label="Snap the cigarette">
+          <div class="cig" id="cigVisual">
+            <div class="cig-half cig-filter">
+              <span class="filter-band"></span>
+              <span class="paper-bit"></span>
             </div>
-            <div class="progress-reel">
-                <div class="reel-track">
-                    <div class="reel-fill" id="reelProgress"></div>
-                </div>
-                <div class="reel-label">Educational Progress</div>
+            <div class="cig-half cig-ash">
+              <span class="paper-long"></span>
+              <span class="ember"></span>
+              <span class="ash-tip"></span>
             </div>
-        </section>
-
-        <!-- Projector Controls -->
-        <nav class="projector-controls">
-            <div class="control-panel">
-                <button class="control-btn prev-btn" id="prevSlide">
-                    <span class="btn-icon">◀</span>
-                    <span class="btn-label">Previous</span>
-                </button>
-                <div class="slide-selector">
-                    <label for="slideSelect">Select Slide:</label>
-                    <select id="slideSelect">
-                        <!-- Will be populated by JavaScript -->
-                    </select>
-                </div>
-                <button class="control-btn next-btn" id="nextSlide">
-                    <span class="btn-label">Next</span>
-                    <span class="btn-icon">▶</span>
-                </button>
+            <div class="smoke-puffs" aria-hidden="true">
+              <i></i><i></i><i></i>
             </div>
-        </nav>
-
-        <!-- Filmstrip Content -->
-        <main class="filmstrip-content">
-            <!-- Slide 1: Introduction -->
-            <article class="film-slide active" id="slide1">
-                <div class="slide-header">
-                    <div class="slide-number">Slide 1</div>
-                    <h2 class="slide-title">Introduction to the Smoking Trap</h2>
-                    <div class="slide-subtitle">Understanding the Nature of Addiction</div>
-                </div>
-                
-                <div class="slide-content">
-                    <div class="slide-image-frame">
-                        <img src="images/1.png" alt="Slide 1: Introduction to Smoking Trap" class="slide-image">
-                        <div class="image-label">Slide 1: The Smoking Trap</div>
-                    </div>
-                    
-                    <div class="narrator-text">
-                        <div class="narrator-label">Narrator</div>
-                        <div class="quote">"The truth is that smoking does absolutely nothing for you at all. It doesn't relieve stress, it doesn't help you concentrate, it doesn't give you courage, and it doesn't make you look cool. It does the exact opposite of all these things."</div>
-                    </div>
-                    
-                    <div class="slide-text">
-                        <p>Welcome to this comprehensive educational series on smoking cessation. In this program, we will systematically examine the nature of the smoking trap and provide you with the knowledge necessary to achieve permanent freedom.</p>
-                        
-                        <h3 class="section-title">Educational Objectives</h3>
-                        <p>By the conclusion of this series, you will understand:</p>
-                        <ul class="educational-list">
-                            <li>The fundamental nature of nicotine addiction</li>
-                            <li>The psychological mechanisms that maintain the smoking habit</li>
-                            <li>The Easy Way method for permanent cessation</li>
-                            <li>Practical strategies for maintaining freedom</li>
-                        </ul>
-                        
-                        <div class="educational-note">
-                            <h4>Important Note</h4>
-                            <p>This educational program is designed to be viewed sequentially. Each slide builds upon previous information to create a complete understanding of the smoking cessation process.</p>
-                        </div>
-                    </div>
-                </div>
-            </article>
-
-            <!-- Slide 2: The Illusion of Pleasure -->
-            <article class="film-slide" id="slide2">
-                <div class="slide-header">
-                    <div class="slide-number">Slide 2</div>
-                    <h2 class="slide-title">The Illusion of Pleasure</h2>
-                    <div class="slide-subtitle">Deconstructing the Smoking Experience</div>
-                </div>
-                
-                <div class="slide-content">
-                    <div class="slide-image-frame">
-                        <img src="images/2.png" alt="Slide 2: The Illusion of Pleasure" class="slide-image">
-                        <div class="image-label">Slide 2: The Illusion of Pleasure</div>
-                    </div>
-                    
-                    <div class="narrator-text">
-                        <div class="narrator-label">Narrator</div>
-                        <div class="quote">"The only pleasure you get from smoking is the relief from the withdrawal symptoms from the previous cigarette. That's not pleasure, that's just relief from a self-imposed discomfort."</div>
-                    </div>
-                    
-                    <div class="slide-text">
-                        <p>One of the most powerful illusions that maintains the smoking habit is the belief that smoking provides genuine pleasure or relief. This slide examines this misconception systematically.</p>
-                        
-                        <h3 class="section-title">The Withdrawal-Relief Cycle</h3>
-                        <p>Smokers experience a continuous cycle of withdrawal and relief that creates the illusion of pleasure. When nicotine levels drop in the bloodstream, withdrawal symptoms begin to appear.</p>
-                        
-                        <div class="educational-diagram">
-                            <h4>Cycle Analysis</h4>
-                            <div class="cycle-steps">
-                                <div class="step">1. Nicotine levels drop</div>
-                                <div class="step">2. Withdrawal symptoms appear</div>
-                                <div class="step">3. Cigarette is smoked</div>
-                                <div class="step">4. Relief is experienced</div>
-                                <div class="step">5. Cycle repeats</div>
-                            </div>
-                        </div>
-                        
-                        <div class="educational-note">
-                            <h4>Key Insight</h4>
-                            <p>The relief experienced after smoking is not pleasure - it is merely the cessation of withdrawal symptoms. This creates a false association between smoking and satisfaction.</p>
-                        </div>
-                    </div>
-                </div>
-            </article>
-
-            <!-- Additional Slides Container -->
-            <div id="additionalSlides"></div>
-        </main>
-
-        <!-- Filmstrip Footer -->
-        <footer class="filmstrip-footer">
-            <div class="production-credits">
-                <div class="credit-line">Produced by Your Brain</div>
-                <div class="credit-line">Directed by Allen Carr</div>
-                <div class="credit-line">A Freedom Production</div>
-            </div>
-            <div class="educational-disclaimer">
-                <p>This educational program is designed to provide information and support for smoking cessation. Results may vary. Consult with healthcare professionals for personalized medical advice.</p>
-            </div>
-        </footer>
-    </div>
-
-    <!-- Vintage Effects Toggle -->
-    <div class="effects-toggle">
-        <button class="toggle-btn" id="vintageToggle">
-            <span class="toggle-icon">🎞️</span>
-            <span class="toggle-label">Vintage Effects</span>
+          </div>
+          <img class="cig-mascot" src="images/cig-character.png" alt="" id="cigMascot">
         </button>
-    </div>
 
-    <script src="main.js"></script>
+        <div class="snap-status" id="snapStatus" aria-live="polite">
+          <strong>Ready?</strong>
+          <span>One click. No drama. Just freedom practice.</span>
+        </div>
+
+        <div class="snap-meter" aria-hidden="true">
+          <div class="meter-track"><div class="meter-fill" id="freedomMeter"></div></div>
+          <p class="meter-label"><span id="snapCount">0</span> snaps · illusion weakening</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Meet Allen -->
+    <section class="allen" id="allen">
+      <div class="allen-visual">
+        <img src="images/allen-portrait.png" alt="Illustrated portrait of Allen Carr">
+      </div>
+      <div class="allen-copy">
+        <h2>Allen Carr, the accidental liberator</h2>
+        <p>
+          A hundred cigarettes a day. Panic about quitting. Then one insight flipped everything:
+          he wasn’t giving anything up — he was escaping a trap that never gave pleasure in the first place.
+        </p>
+        <ul class="allen-facts">
+          <li><strong>100-a-day smoker</strong> who quit instantly — and stayed free</li>
+          <li><strong>Easyway clinics</strong> worldwide teaching the method live</li>
+          <li><strong>Millions</strong> of readers who stopped without “white-knuckle” willpower</li>
+        </ul>
+        <blockquote class="allen-pull">
+          “The only reason any smoker lights a cigarette is to try to feel like a non-smoker.”
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- The trap explained -->
+    <section class="trap" id="trap">
+      <div class="section-intro">
+        <h2>The smoking trap, in three beats</h2>
+        <p>Allen’s genius was making the invisible mechanism obvious — and a bit ridiculous.</p>
+      </div>
+      <ol class="trap-steps">
+        <li>
+          <span class="step-num">01</span>
+          <h3>Nicotine creates the itch</h3>
+          <p>An empty, restless little hunger appears — not because life is hard, but because the last dose is fading.</p>
+        </li>
+        <li>
+          <span class="step-num">02</span>
+          <h3>The cigarette “cures” it</h3>
+          <p>You smoke. Relief arrives. Your brain credits the cigarette for feeling normal again.</p>
+        </li>
+        <li>
+          <span class="step-num">03</span>
+          <h3>The illusion locks in</h3>
+          <p>Stress helper. Focus tool. Social glue. Cool prop. All stories layered on top of a tiny drug itch.</p>
+        </li>
+      </ol>
+      <figure class="trap-figure">
+        <img src="images/cig-to-flowers.png" alt="A broken cigarette transforming into flowers">
+        <figcaption>Break the cycle and the “need” turns into fresh air again.</figcaption>
+      </figure>
+    </section>
+
+    <!-- Method -->
+    <section class="method" id="method">
+      <div class="method-copy">
+        <h2>The Easy Way isn’t harder willpower</h2>
+        <p>
+          You don’t “give up” a treasure. You remove a brainwashing job that kept you paying for your own discomfort.
+          Keep smoking while you learn — then finish the final cigarette as a celebration, not a funeral.
+        </p>
+        <ul class="method-points">
+          <li>No scare tactics, no substitutes required</li>
+          <li>Destroy the myths: pleasure, stress relief, “I’ll miss it”</li>
+          <li>Leave as a happy non-smoker — already free</li>
+        </ul>
+      </div>
+      <div class="method-visual">
+        <img src="images/easy-way-method.png" alt="Illustration of insight, an open book, and a crossed-out cigarette">
+      </div>
+    </section>
+
+    <!-- Lessons browser -->
+    <section class="lessons" id="lessons">
+      <div class="section-intro">
+        <h2>Freedom filmstrip</h2>
+        <p>Thirty-nine quick lessons. Flip through like a cheeky educational reel — Allen in your pocket.</p>
+      </div>
+
+      <div class="lesson-controls">
+        <button type="button" class="btn btn-ghost" id="prevLesson">Previous</button>
+        <div class="lesson-progress">
+          <span id="lessonLabel">Lesson 1 / 39</span>
+          <div class="meter-track"><div class="meter-fill" id="lessonMeter"></div></div>
+        </div>
+        <button type="button" class="btn btn-primary" id="nextLesson">Next lesson</button>
+      </div>
+
+      <article class="lesson-panel" id="lessonPanel">
+        <div class="lesson-kicker" id="lessonKicker">Chapter</div>
+        <h3 id="lessonTitle">Introduction to the Smoking Trap</h3>
+        <p class="lesson-sub" id="lessonSub">Understanding the Nature of Addiction</p>
+        <blockquote id="lessonQuote"></blockquote>
+        <div class="lesson-body" id="lessonBody"></div>
+      </article>
+
+      <label class="lesson-jump">
+        <span>Jump to lesson</span>
+        <select id="lessonSelect"></select>
+      </label>
+    </section>
+
+    <!-- Quotes -->
+    <section class="quotes" id="quotes">
+      <div class="section-intro">
+        <h2>Allen, on record</h2>
+        <p>Lines that make smokers laugh — then put the pack down for good.</p>
+      </div>
+      <div class="quote-stage">
+        <button type="button" class="quote-nav" id="prevQuote" aria-label="Previous quote">‹</button>
+        <figure class="quote-card" id="quoteCard">
+          <blockquote id="quoteText"></blockquote>
+          <figcaption>— Allen Carr</figcaption>
+        </figure>
+        <button type="button" class="quote-nav" id="nextQuote" aria-label="Next quote">›</button>
+      </div>
+      <div class="quote-dots" id="quoteDots" role="tablist" aria-label="Quote slides"></div>
+    </section>
+
+    <!-- Freedom closer -->
+    <section class="freedom" id="freedom">
+      <div class="freedom-media">
+        <img src="images/free-air.png" alt="Person with arms open on a hill under a wide sky">
+      </div>
+      <div class="freedom-copy">
+        <h2>You don’t miss cigarettes. You miss the little relief ritual.</h2>
+        <p>Once the trap is obvious, the “sacrifice” story evaporates. What’s left is taste, money, mornings, and clean breath.</p>
+        <a class="btn btn-primary" href="#lessons">Keep going through the lessons</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p class="footer-brand">Allen Carr · Easy Way</p>
+    <p class="footer-note">Educational tribute inspired by Allen Carr’s Easyway ideas. For personal learning — not a medical substitute. If you need clinical support, talk to a healthcare professional.</p>
+  </footer>
+
+  <script src="main.js"></script>
 </body>
 </html>
