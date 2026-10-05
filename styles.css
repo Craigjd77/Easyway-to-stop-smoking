@@ -394,6 +394,7 @@ button { font: inherit; }
   padding: 2rem 1.5rem;
   cursor: pointer;
   text-align: left;
+  color: #fff;
   background: linear-gradient(160deg, #1c2c26, #132019);
   box-shadow: 0 30px 60px rgba(0,0,0,0.35);
   transition: transform 0.35s ease, background 0.35s ease;
